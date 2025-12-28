@@ -49,6 +49,13 @@ def main():
                 log_event("player_hit")
                 sys.exit()
 
+        for aster in asteroids:
+            for shot in shots:
+                if shot.collides_with(aster):
+                    log_event("asteroid_shot")
+                    aster.split()
+                    shot.kill()
+
         screen.fill("black")
 
         for item in drawable:
